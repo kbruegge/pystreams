@@ -6,13 +6,16 @@ from setuptools import setup
 with open('README.rst') as readme_file:
     readme = readme_file.read()
 
-requirements = [
+install_requires = [
     'Click>=6.0',
-    # TODO: put package requirements here
 ]
 
-test_requirements = [
-    # TODO: put package test requirements here
+tests_require = [
+    'pytest>=3.0.0'
+]
+
+setup_requires = [
+    'pytest'
 ]
 
 setup(
@@ -26,15 +29,10 @@ setup(
     packages=[
         'pystreams',
     ],
-    package_dir={'pystreams':
-                 'pystreams'},
-    entry_points={
-        'console_scripts': [
-            'pystreams=pystreams.cli:main'
-        ]
-    },
     include_package_data=True,
-    install_requires=requirements,
+    install_requires=install_requires,
+    setup_requires=setup_requires,
+    tests_require=tests_require,
     license="MIT license",
     zip_safe=False,
     keywords='pystreams',
@@ -45,5 +43,4 @@ setup(
         'Programming Language :: Python :: 3.5',
     ],
     test_suite='tests',
-    tests_require=test_requirements
 )
